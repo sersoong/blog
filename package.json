@@ -1,6 +1,7 @@
 {
   "name": "my-blog",
   "version": "0.1.0",
+  "homepage" : "http://sersoong.github.io/blog",
   "private": true,
   "dependencies": {
     "react": "^16.4.1",
