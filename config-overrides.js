@@ -9,7 +9,7 @@ module.exports = function override(config,env){
         config,
     );
     config = rewireless.withLoaderOptions({
-        modifyVars:{"@primary-color":"#1DA57A"},
+        modifyVars:{},
         javascriptEnabled:true,
     })(config,env);
     return config;
