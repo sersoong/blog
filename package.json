@@ -4,7 +4,9 @@
   "homepage": "http://sersoong.github.io/blog",
   "private": true,
   "dependencies": {
+    "antd": "^3.8.3",
     "react": "^16.4.1",
+    "react-app-rewired": "^1.5.2",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
@@ -12,9 +14,9 @@
     "redux": "^4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "react-app-rewired  start",
+    "build": "react-app-rewired  build",
+    "test": "react-app-rewired  test --env=jsdom",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
