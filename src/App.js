@@ -4,14 +4,14 @@ import 'App.css';
 import BreadcrumbItem from 'antd/lib/breadcrumb/BreadcrumbItem';
 import HeaderContent from 'Containers/Header';
 import axios from 'axios';
-
+import FooterContent from "Containers/Footer";
 const { Content,Footer } = Layout
 
 class App extends Component {
 
   constructor(){
     super()
-    this.state = {title:"",navs:[{title:"",url:""}]}
+    this.state = {site_config:"",navs:[{title:"",url:""}]}
   }
 
   setTitle(title){
@@ -23,15 +23,15 @@ class App extends Component {
     return axios.get("/nav_menu.json")
   }
 
-  getTitle(){
+  getSiteConfig(){
     return axios.get("/site_config.json")
   }
 
   ajaxGetInit(){
     const _this = this
-    axios.all([this.getTitle(),this.getNavMenu()])
-    .then(axios.spread(function (title,navs){
-      _this.setState({title:title.data["title"],navs:navs.data})
+    axios.all([this.getSiteConfig(),this.getNavMenu()])
+    .then(axios.spread(function (site_config,navs){
+      _this.setState({site_config:site_config.data,navs:navs.data})
     }))
   }
 
@@ -42,11 +42,11 @@ class App extends Component {
   }
 
   render() {
-    this.setTitle("Sersoong's blog")
+    this.setTitle(this.state.site_config.title)
     return (
       <div>
        <Layout className="App">
-        <HeaderContent title={this.state.title} navs={this.state.navs}/>
+        <HeaderContent title={this.state.site_config.title} navs={this.state.navs}/>
         <Layout>
           <Content style={{padding:'0 50px'}}>
             <Breadcrumb style={{margin:'16px 0'}}>
@@ -56,7 +56,7 @@ class App extends Component {
             </Breadcrumb>
             </Content>
         </Layout>
-        <Footer>Sersoong's blog ©2018 Created by Sersoong</Footer>
+        <Footer><FooterContent title={this.state.site_config.title} creator={this.state.site_config.creator}/></Footer>
        </Layout>
       </div>
     );

@@ -2,6 +2,9 @@
     width: 250px;
     float: left;
   }
-  .logo h1{
+.logo h1 a{
     color: white;
+  }
+.logo h1 a:hover{
+      color:cornflowerblue ;
   }
