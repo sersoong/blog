@@ -11,26 +11,42 @@ class App extends Component {
 
   constructor(){
     super()
-    this.state = {navs:[{title:"",url:""}]}
-}
+    this.state = {title:"",navs:[{title:"",url:""}]}
+  }
 
-componentWillMount(){
+  setTitle(title){
+    document.title = title
+  }
+
+  getNavMenu(){
+   
+    return axios.get("/nav_menu.json")
+  }
+
+  getTitle(){
+    return axios.get("/site_config.json")
+  }
+
+  ajaxGetInit(){
     const _this = this
-    axios.get("/nav_menu.json")
-    .then(function (response){
-        _this.setState({navs:response.data})
-    })
-    .catch(function(error){
-        console.log(error)
-    })
+    axios.all([this.getTitle(),this.getNavMenu()])
+    .then(axios.spread(function (title,navs){
+      _this.setState({title:title.data["title"],navs:navs.data})
+    }))
+  }
 
-}
+  componentWillMount(){
+    
+    this.ajaxGetInit()    
+
+  }
 
   render() {
+    this.setTitle("Sersoong's blog")
     return (
       <div>
        <Layout className="App">
-        <HeaderContent navs={this.state.navs}/>
+        <HeaderContent title={this.state.title} navs={this.state.navs}/>
         <Layout>
           <Content style={{padding:'0 50px'}}>
             <Breadcrumb style={{margin:'16px 0'}}>

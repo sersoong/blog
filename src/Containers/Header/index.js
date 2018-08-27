@@ -9,7 +9,7 @@ class HeaderContent extends Component {
     render(){
         return(
             <Header>
-                <Logo title="Sersoong's blog"/>
+                <Logo title={this.props.title}/>
                 <HeaderMenu navs={this.props.navs}/>
             </Header>
         )
