@@ -1,10 +1,14 @@
+import 'App.css';
 import React, { Component } from 'react';
 import { Layout,Breadcrumb } from "antd";
-import 'App.css';
+import axios from 'axios';
+import { BrowserRouter, Switch ,Route } from "react-router-dom";
 import BreadcrumbItem from 'antd/lib/breadcrumb/BreadcrumbItem';
 import HeaderContent from 'Containers/Header';
-import axios from 'axios';
 import FooterContent from "Containers/Footer";
+import Home from 'Containers/Home';
+import Posts from 'Containers/Posts';
+import About from 'Containers/About';
 const { Content,Footer } = Layout
 
 class App extends Component {
@@ -44,6 +48,7 @@ class App extends Component {
   render() {
     this.setTitle(this.state.site_config.title)
     return (
+      <BrowserRouter>
       <div>
        <Layout className="App">
         <HeaderContent title={this.state.site_config.title} navs={this.state.navs}/>
@@ -54,11 +59,18 @@ class App extends Component {
             <BreadcrumbItem>List</BreadcrumbItem>
             <BreadcrumbItem>App</BreadcrumbItem>
             </Breadcrumb>
+            <Switch>
+              <Route exact path ="/" component={Home}/>
+              <Route exact path ="/posts" component={Posts}/>
+              <Route exact path ="/about" component={About}/>
+            </Switch>
+            
             </Content>
         </Layout>
         <Footer><FooterContent title={this.state.site_config.title} creator={this.state.site_config.creator}/></Footer>
        </Layout>
       </div>
+      </BrowserRouter>
     );
   }
 }

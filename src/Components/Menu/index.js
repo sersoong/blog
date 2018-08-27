@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-
+import { NavLink } from "react-router-dom";
 import {Menu} from "antd";
 
 class HeaderMenu extends Component {
@@ -14,7 +14,9 @@ class HeaderMenu extends Component {
           >
           {this.props.navs.map((nav,i)=>{
               return(
-                    <Menu.Item key={i}>{nav.title}</Menu.Item>
+                    <Menu.Item key={i}>
+                        <NavLink to={nav.url}>{nav.title}</NavLink> 
+                    </Menu.Item>
               )
           })}
           
