@@ -1,0 +1,16 @@
+.home_cover {
+    background-image: url("/static/background.jpg");
+    background-size: cover;
+    height: 100%;
+    color: #000000;
+  }
+
+.title {
+    color: aliceblue;
+    font-size: 20px;
+    text-shadow: 3px 3px 3px #000000
+}
+
+.image {
+    box-shadow: 3px 3px 3px #00000070;
+}

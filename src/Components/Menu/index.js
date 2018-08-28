@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import { NavLink } from "react-router-dom";
 import {Menu} from "antd";
 import PropTypes from 'prop-types';
+
 class HeaderMenu extends Component {
     static propTypes = {
         navs:PropTypes.array

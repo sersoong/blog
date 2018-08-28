@@ -9,7 +9,6 @@ import FooterContent from "Containers/Footer";
 import Home from 'Containers/Home';
 import Posts from 'Containers/Posts';
 import About from 'Containers/About';
-const { Content,Footer } = Layout
 
 class App extends Component {
   constructor(){
@@ -49,27 +48,24 @@ class App extends Component {
     this.setTitle(this.state.site_config.title)
     return (
       <BrowserRouter>
-      <div>
        <Layout className="App">
         <HeaderContent title={this.state.site_config.title} navs={this.state.navs}/>
         <Layout>
-          <Content style={{padding:'0 50px'}}>
+
             {/* <Breadcrumb style={{margin:'16px 0'}}>
             <BreadcrumbItem>Home</BreadcrumbItem>
             <BreadcrumbItem>List</BreadcrumbItem>
             <BreadcrumbItem>App</BreadcrumbItem>
             </Breadcrumb> */}
+            
             <Switch>
               <Route exact path ="/" component={Home}/>
               <Route path ="/posts" component={Posts}/>
               <Route path ="/about" component={About}/>
             </Switch>
-            
-            </Content>
         </Layout>
-        <Footer><FooterContent title={this.state.site_config.title} creator={this.state.site_config.creator}/></Footer>
+        <FooterContent title={this.state.site_config.title} creator={this.state.site_config.creator}/>
        </Layout>
-      </div>
       </BrowserRouter>
     );
   }

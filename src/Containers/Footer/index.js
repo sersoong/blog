@@ -11,8 +11,8 @@ class FooterContent extends Component {
     }
     render(){
         return(
-            <Footer>
-                <a className="FooterName" href="/">{this.props.title}</a> ©2018 Created by {this.props.creator}
+            <Footer className="footer">
+                <a className="footer" href="/">{this.props.title}</a> ©2018 Created by {this.props.creator}
             </Footer>
         )
     }
