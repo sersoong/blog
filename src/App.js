@@ -12,13 +12,16 @@ import About from 'Containers/About';
 const { Content,Footer } = Layout
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {site_config:{},navs:[]}
+  }
 
   setTitle(title){
     document.title = title
   }
 
   getNavMenu(){
-   
     return axios.get("/nav_menu.json")
   }
 
@@ -26,28 +29,36 @@ class App extends Component {
     return axios.get("/site_config.json")
   }
 
+
+
   ajaxGetInit(){
-    var result = axios.all([this.getSiteConfig(),this.getNavMenu()])
-    .then(axios.spread(function (site_config,navs){
-      return {site_config:site_config.data,navs:navs.data}
+    const _this = this
+    axios.all([this.getSiteConfig(),this.getNavMenu()])
+      .then(axios.spread(function (site_config,navs){
+        _this.setState({site_config:site_config.data,navs:navs.data}) 
     }))
-    console.log(result)
+
+  }
+
+  componentWillMount(){
+    this.ajaxGetInit()
   }
 
   render() {
-    // this.setTitle(this.state.site_config.title)
+    
+    this.setTitle(this.state.site_config.title)
     return (
       <BrowserRouter>
       <div>
        <Layout className="App">
-        <HeaderContent/>
+        <HeaderContent title={this.state.site_config.title} navs={this.state.navs}/>
         <Layout>
           <Content style={{padding:'0 50px'}}>
-            <Breadcrumb style={{margin:'16px 0'}}>
+            {/* <Breadcrumb style={{margin:'16px 0'}}>
             <BreadcrumbItem>Home</BreadcrumbItem>
             <BreadcrumbItem>List</BreadcrumbItem>
             <BreadcrumbItem>App</BreadcrumbItem>
-            </Breadcrumb>
+            </Breadcrumb> */}
             <Switch>
               <Route exact path ="/" component={Home}/>
               <Route path ="/posts" component={Posts}/>
@@ -56,7 +67,7 @@ class App extends Component {
             
             </Content>
         </Layout>
-        <Footer><FooterContent /></Footer>
+        <Footer><FooterContent title={this.state.site_config.title} creator={this.state.site_config.creator}/></Footer>
        </Layout>
       </div>
       </BrowserRouter>

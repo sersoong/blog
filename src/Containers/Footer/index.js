@@ -5,6 +5,10 @@ import "./style.css"
 const { Footer } = Layout
 
 class FooterContent extends Component {
+    static defaultProps = {
+        title:"Sersoong's blog",
+        creator:"Sersoong"
+    }
     render(){
         return(
             <Footer>
