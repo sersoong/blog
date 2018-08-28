@@ -13,11 +13,6 @@ const { Content,Footer } = Layout
 
 class App extends Component {
 
-  constructor(){
-    super()
-    this.state = {site_config:"",navs:[{title:"",url:""}]}
-  }
-
   setTitle(title){
     document.title = title
   }
@@ -32,26 +27,20 @@ class App extends Component {
   }
 
   ajaxGetInit(){
-    const _this = this
-    axios.all([this.getSiteConfig(),this.getNavMenu()])
+    var result = axios.all([this.getSiteConfig(),this.getNavMenu()])
     .then(axios.spread(function (site_config,navs){
-      _this.setState({site_config:site_config.data,navs:navs.data})
+      return {site_config:site_config.data,navs:navs.data}
     }))
-  }
-
-  componentWillMount(){
-    
-    this.ajaxGetInit()    
-
+    console.log(result)
   }
 
   render() {
-    this.setTitle(this.state.site_config.title)
+    // this.setTitle(this.state.site_config.title)
     return (
       <BrowserRouter>
       <div>
        <Layout className="App">
-        <HeaderContent title={this.state.site_config.title} navs={this.state.navs}/>
+        <HeaderContent/>
         <Layout>
           <Content style={{padding:'0 50px'}}>
             <Breadcrumb style={{margin:'16px 0'}}>
@@ -61,13 +50,13 @@ class App extends Component {
             </Breadcrumb>
             <Switch>
               <Route exact path ="/" component={Home}/>
-              <Route exact path ="/posts" component={Posts}/>
-              <Route exact path ="/about" component={About}/>
+              <Route path ="/posts" component={Posts}/>
+              <Route path ="/about" component={About}/>
             </Switch>
             
             </Content>
         </Layout>
-        <Footer><FooterContent title={this.state.site_config.title} creator={this.state.site_config.creator}/></Footer>
+        <Footer><FooterContent /></Footer>
        </Layout>
       </div>
       </BrowserRouter>
