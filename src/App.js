@@ -3,12 +3,15 @@ import React, { Component } from 'react';
 import { Layout,Breadcrumb } from "antd";
 import axios from 'axios';
 import { BrowserRouter, Switch ,Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
 import BreadcrumbItem from 'antd/lib/breadcrumb/BreadcrumbItem';
 import HeaderContent from 'Containers/Header';
 import FooterContent from "Containers/Footer";
 import Home from 'Containers/Home';
 import Posts from 'Containers/Posts';
 import About from 'Containers/About';
+
+const history = createBrowserHistory()
 
 class App extends Component {
   constructor(){
@@ -50,7 +53,7 @@ class App extends Component {
       <BrowserRouter>
        <Layout className="App">
         <HeaderContent title={this.state.site_config.title} navs={this.state.navs}/>
-        <Layout>
+        <Layout history={history}>
 
             {/* <Breadcrumb style={{margin:'16px 0'}}>
             <BreadcrumbItem>Home</BreadcrumbItem>
