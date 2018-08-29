@@ -1,9 +1,16 @@
-import axios from "axios";
+import Axios from "axios";
 
 export const getNavMenu = ()=>{
-    return axios.get("/nav_menu.json")
+    return Axios.get("/nav_menu.json")
 }
 
 export const getSiteConfig = ()=> {
-    return axios.get("/site_config.json")
+    return Axios.get("/site_config.json")
+}
+
+export const getSiteInfo = (dispatch,action) =>{
+    Axios.all([getSiteConfig(),getNavMenu()])
+    .then(Axios.spread(function (site_config,navs){
+      dispatch(action(site_config.data,navs.data))
+}))
 }
