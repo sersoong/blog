@@ -22,10 +22,6 @@ class Routes extends Component {
         
         this.setTitle(this.props.site_config.title)
         return(
-            // <div>
-            //     <span>{this.props.value}</span>
-            //     <button onClick={this.props.add}>Get</button>
-            // </div>
         <BrowserRouter>
             <Layout className="App">
             <HeaderContent title={this.props.site_config.title} navs={this.props.navs}/>
