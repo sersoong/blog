@@ -20,34 +20,19 @@ class Routes extends Component {
     setTitle(title){
         document.title = title
     }
-    // onIncreaseClick(dispatch){
-    //     dispatch({
-    //         type:'INIT_SITE',
-    //         payload:{
-    //           count:0
-    //         }
-    //     }
-    //     )
-    //   }
-    ajaxGetInit(){
-        const _this = this
-        axios.all([getSiteConfig(),getNavMenu()])
-            .then(axios.spread(function (site_config,navs){
-            _this.setState({site_config:site_config.data,navs:navs.data}) 
-        }))
     
-      }
     componentWillMount(){
-        this.ajaxGetInit()
+        this.props.initsite()
     }
 
     render(){
         console.log(this.props)
-        this.setTitle(this.state.site_config.title)
+        
+        this.setTitle(this.props.site_config.title)
         return(
             <div>
                 <span>{this.props.value}</span>
-                <button onClick={this.props.onIncreaseClick}>Get</button>
+                <button onClick={this.props.add}>Get</button>
             </div>
         // <BrowserRouter>
         //     <Layout className="App">
