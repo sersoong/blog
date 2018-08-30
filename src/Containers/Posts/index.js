@@ -36,14 +36,24 @@ class Posts extends Component{
                                 onChange: (page) => {
                                   console.log(page);
                                 },
-                                pageSize: 3,
+                                pageSize: 4,
                               }}
-                            header={<Card hoverable='true' title='Header Title' bordered><Card.Meta title="meta title" avatar={<Avatar src="/static/avatar.jpg" description={<div>meta description</div>}/>} /> Header</Card>}
-                            footer={<div>Footer</div>}
+                            header={<Card 
+                                hoverable='true' 
+                                title='Header Title' 
+                                bordered>
+                                    <Card.Meta 
+                                    title="meta title" 
+                                    avatar={<Avatar 
+                                        src="/static/avatar.jpg" 
+                                        description={
+                                            <div>meta description</div>
+                                        }/>} /> 
+                                        Header
+                                </Card>}
                             bordered
                             dataSource={ listData }
                             renderItem={item => (
-                         
                                 <List.Item 
                                 key={item.title}
                                 actions={[<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}
@@ -62,4 +72,4 @@ class Posts extends Component{
     }
 }
 
-export default Posts
+export default (props)=>{ return <Posts {...props} />}

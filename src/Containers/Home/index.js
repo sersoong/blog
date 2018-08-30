@@ -10,6 +10,7 @@ class Home extends Component{
     }
 
     render(){
+        console.log(this.props)
         return(
             <Layout>
                 <div className="avatar_middle">
@@ -26,4 +27,4 @@ class Home extends Component{
     }
 }
 
-export default Home
+export  default (props)=>{return <Home {...props}/>}
