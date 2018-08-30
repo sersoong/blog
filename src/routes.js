@@ -7,6 +7,7 @@ import Home from 'Containers/Home';
 import Posts from 'Containers/Posts';
 import About from 'Containers/About';
 import "./App.css"
+const {Content} = Layout
 
 class Routes extends Component {
 
@@ -27,13 +28,18 @@ class Routes extends Component {
             <Layout className="App">
             <HeaderContent title={this.props.site_config.title} navs={this.props.navs}/>
             <Layout>
+            <Content className="home_cover">
                     <Switch>
                     <Route exact path ="/" render={(props)=><Home {...props} {...this.props}/>}/>
                     <Route path ="/posts" render={(props)=><Posts {...props} {...this.props} />}/>
                     <Route path ="/about" render={(props)=><About {...props} {...this.props} />}/>
                     </Switch>
-                    <FooterContent title={this.props.site_config.title} creator={this.props.site_config.creator}/>
+                    
+            </Content>
+            <FooterContent title={this.props.site_config.title} creator={this.props.site_config.creator}/>
             </Layout>
+            
+            
             </Layout>
         </BrowserRouter>
         )

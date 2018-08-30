@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import { NavLink } from "react-router-dom";
-import {Menu} from "antd";
+import {Menu,Icon} from "antd";
 import PropTypes from 'prop-types';
 
 class HeaderMenu extends Component {
@@ -26,12 +26,13 @@ class HeaderMenu extends Component {
             theme="dark"
             mode="horizontal"
             selectedKeys={[num]}
-            style={{lineHeight:'64px',float:"right"}}
+            style={{lineHeight:'64px',float:'right'}}
             >
             {this.props.navs.map((nav,i)=>{
                 return(
                     <Menu.Item key={i}>
-                        <NavLink to={nav.url}>{nav.title}</NavLink> 
+                        
+                        <NavLink to={nav.url}><Icon type={nav.icon}/>{nav.title}</NavLink> 
                     </Menu.Item>
                 )
             })}

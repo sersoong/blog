@@ -4,8 +4,6 @@ import "./style.css"
 
 const { Content }  = Layout
 
-
-
 class Posts extends Component{
 
     render(){
@@ -28,8 +26,8 @@ class Posts extends Component{
           );
           
         return(
-            <Content className="background_cover">
-                <Row className="row"  type="flex" justify="center" align="middle" >
+            <div className="row">
+                <Row  type="flex" justify="center" align="middle" >
                     <Col className="content" span="20">
                         <List
                             itemLayout="vertical"
@@ -59,7 +57,7 @@ class Posts extends Component{
                         />
                     </Col>
                 </Row>
-            </Content>
+            </div>
         )
     }
 }

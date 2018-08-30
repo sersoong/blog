@@ -7,9 +7,8 @@ const { Header } = Layout
 
 class HeaderContent extends Component {
     render(){
-        // console.log(this.props)
         return(
-            <Header>
+            <Header style={{display:'block'}}>
                 <Logo title={this.props.title}/>
                 <HeaderMenu navs={this.props.navs}/>
             </Header>
