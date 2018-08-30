@@ -1,0 +1,31 @@
+.background_cover {
+    background-image: url("/static/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    color: #000000;
+  }
+
+.content {
+    background-color: #ffffff;
+    text-align: left;
+}
+
+.row {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.item {
+    padding-top: 50px;
+}
+
+.title {
+    color: aliceblue;
+    font-size: 20px;
+    text-shadow: 3px 3px 3px #000000
+}
+
+.image {
+    box-shadow: 3px 3px 3px #00000070;
+}

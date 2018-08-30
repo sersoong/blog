@@ -6,6 +6,7 @@ import FooterContent from "Containers/Footer";
 import Home from 'Containers/Home';
 import Posts from 'Containers/Posts';
 import About from 'Containers/About';
+import "./App.css"
 
 class Routes extends Component {
 
@@ -26,13 +27,13 @@ class Routes extends Component {
             <Layout className="App">
             <HeaderContent title={this.props.site_config.title} navs={this.props.navs}/>
             <Layout>
-                <Switch>
-                <Route exact path ="/" render={(props)=><Home {...props} {...this.props}/>}/>
-                <Route path ="/posts" component={Posts}/>
-                <Route path ="/about" component={About}/>
-                </Switch>
+                    <Switch>
+                    <Route exact path ="/" render={(props)=><Home {...props} {...this.props}/>}/>
+                    <Route path ="/posts" render={(props)=><Posts {...props} {...this.props} />}/>
+                    <Route path ="/about" render={(props)=><About {...props} {...this.props} />}/>
+                    </Switch>
+                    <FooterContent title={this.props.site_config.title} creator={this.props.site_config.creator}/>
             </Layout>
-            <FooterContent title={this.props.site_config.title} creator={this.props.site_config.creator}/>
             </Layout>
         </BrowserRouter>
         )
