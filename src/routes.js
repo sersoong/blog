@@ -16,7 +16,6 @@ class Routes extends Component {
     }
 
     render(){
-        
         console.log(this.props)
         this.setTitle(this.props.site_config.title)
         return(

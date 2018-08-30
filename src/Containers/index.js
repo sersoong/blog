@@ -5,8 +5,10 @@ import FooterContent from "./Footer";
 
 export default (subcomponent,props)=>{
     switch(subcomponent){
+        
         case 'Home':
         return Home(props)
+
         case 'Posts':
         return Posts(props)
     }

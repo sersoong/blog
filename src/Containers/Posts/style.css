@@ -11,6 +11,15 @@
     text-align: left;
 }
 
+.card_title {
+    font-weight: bold
+}
+
+.card_description {
+    font-style: italic;
+    color: rgb(134, 134, 134)
+}
+
 .row {
     padding-top: 50px;
     padding-bottom: 25px;

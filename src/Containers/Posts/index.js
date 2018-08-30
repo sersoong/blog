@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Layout,Card, Row, Col,List, Icon, Button, Avatar } from "antd";
+import { Tag, Row, Col,List, Icon, Button, Avatar } from "antd";
 import "./style.css"
+import ListItem from './listitem';
 
-const { Content }  = Layout
+import Intro from './card';
 
 class Posts extends Component{
 
@@ -12,18 +13,16 @@ class Posts extends Component{
         listData.push({
             href: 'http://ant.design',
             title: `ant design part ${i}`,
+            thumb: '/static/02.png',
+            date: '2018/08/30',
+            like: '39',
+            messages: '3',
+            tags:['foo','bar'],
             avatar: '/static/02.png',
             description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
             content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
         });
         }
-
-        const IconText = ({ type, text }) => (
-            <span style={{ marginLeft:15 }}>
-              <Icon type={type} style={{ marginRight: 8 }} />
-              {text}
-            </span>
-          );
           
         return(
             <div className="row">
@@ -34,36 +33,18 @@ class Posts extends Component{
                             size="large"
                             pagination={{
                                 onChange: (page) => {
-                                  console.log(page);
+                                //   console.log(page);
                                 },
                                 pageSize: 4,
                               }}
-                            header={<Card 
-                                hoverable='true' 
-                                title='Header Title' 
-                                bordered>
-                                    <Card.Meta 
-                                    title="meta title" 
-                                    avatar={<Avatar 
-                                        src="/static/avatar.jpg" 
-                                        description={
-                                            <div>meta description</div>
-                                        }/>} /> 
-                                        Header
-                                </Card>}
+                            header={<Intro {...this.props}/>}
                             bordered
                             dataSource={ listData }
-                            renderItem={item => (
-                                <List.Item 
-                                key={item.title}
-                                actions={[<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}
-                                >
-                                    <List.Item.Meta avatar={<Avatar size={60} src={item.avatar}/>}
-                                        title={<a>{item.title}</a>}
-                                        description={item.description}/>
-                                    {item.content}
-                                </List.Item>
-                            )}
+                            renderItem={item =>{
+                                return (
+                                    <ListItem item={item} {...this.props} />
+                                )
+                            } }
                         />
                     </Col>
                 </Row>

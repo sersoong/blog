@@ -1,5 +1,10 @@
 {
     "title":"Sersoong's blog",
     "creator":"Sersoong",
-    "avatar":"/static/avatar.jpg"
+    "avatar":"/static/avatar.jpg",
+    "card":{
+        "title":"SELF INTRODUCTION",
+        "meta_title":"sersoong",
+        "meta_description":"Lord of the Seven Kingdoms,Protector of the Realm,Breaker of Chains.WTF of above"
+    }
 }

@@ -1,0 +1,42 @@
+import React, { Component } from 'react';
+import { Tag, Row, Col,List, Icon, Button, Avatar } from "antd";
+import "./style.css"
+
+export default class ListItem extends Component {
+    
+
+    render(){
+        const IconText = ({ type, text }) => (
+            <span style={{ marginLeft:15 }}>
+              <Icon type={type} style={{ marginRight: 8 }} />
+              {text}
+            </span>
+          );
+        
+        return(
+            <List.Item 
+            key={this.props.item.title}
+            actions={[<IconText 
+                type="like-o" 
+                text={this.props.item.like} 
+                />,
+                <IconText 
+                type="message" 
+                text={this.props.item.messages} />,
+                <div>
+                    {this.props.item.date}
+                </div>,
+                <div>
+                    {this.props.item.tags.map((tag,i)=>{return (<Tag key={i} color="#108ee9">{tag}</Tag>)})}
+                </div>
+                ]}
+            extra={<img width={150} alt="logo"  src={this.props.item.thumb}/>}
+            >
+                <List.Item.Meta avatar={<Avatar size={60} src={this.props.site_config.avatar}/>}
+                    title={<a href={this.props.item.href}>{this.props.item.title}</a>}
+                    description={this.props.item.description}/>
+                {this.props.item.content}
+            </List.Item>
+        )
+    }
+}
