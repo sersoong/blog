@@ -29,7 +29,7 @@ export default class ListItem extends Component {
                     {this.props.item.tags.map((tag,i)=>{return (<Tag key={i} color="#108ee9">{tag}</Tag>)})}
                 </div>
                 ]}
-            extra={<img width={150} alt="logo"  src={this.props.item.thumb}/>}
+            extra={<a href={this.props.item.href}><img width={150} alt="logo"  src={this.props.item.thumb}/></a>}
             >
                 <List.Item.Meta
                     title={<a href={this.props.item.href}>{this.props.item.title}</a>}
