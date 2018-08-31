@@ -6,8 +6,12 @@ import ListItem from './listitem';
 import Intro from './card';
 
 class Posts extends Component{
+    componentWillMount(){
+        this.props.articleList()
+    }
 
     render(){
+        // console.log(this.props.article_list)
         const listData = [];
         for (let i = 0; i < 23; i++) {
         listData.push({
@@ -39,10 +43,10 @@ class Posts extends Component{
                               }}
                             header={<Intro {...this.props}/>}
                             bordered
-                            dataSource={ listData }
+                            dataSource={ this.props.article_list }
                             renderItem={item =>{
                                 return (
-                                    <ListItem item={item} {...this.props} />
+                                    <ListItem item={item} />
                                 )
                             } }
                         />

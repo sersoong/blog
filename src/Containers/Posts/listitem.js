@@ -3,9 +3,8 @@ import { Tag, Row, Col,List, Icon, Button, Avatar } from "antd";
 import "./style.css"
 
 export default class ListItem extends Component {
-    
-
     render(){
+        // console.log(this.props)
         const IconText = ({ type, text }) => (
             <span style={{ marginLeft:15 }}>
               <Icon type={type} style={{ marginRight: 8 }} />
@@ -32,7 +31,7 @@ export default class ListItem extends Component {
                 ]}
             extra={<img width={150} alt="logo"  src={this.props.item.thumb}/>}
             >
-                <List.Item.Meta avatar={<Avatar size={60} src={this.props.site_config.avatar}/>}
+                <List.Item.Meta
                     title={<a href={this.props.item.href}>{this.props.item.title}</a>}
                     description={this.props.item.description}/>
                 {this.props.item.content}
