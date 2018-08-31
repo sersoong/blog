@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Avatar } from "antd";
+import "./style.css"
 
 export default class Intro extends Component {
 

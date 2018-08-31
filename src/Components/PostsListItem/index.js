@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Tag, List, Icon} from "antd";
-import "./style.css"
 
 export default class ListItem extends Component {
     render(){

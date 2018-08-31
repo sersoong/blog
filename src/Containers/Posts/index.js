@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Row, Col,List} from "antd";
+///style
 import "./style.css"
-import ListItem from './listitem';
-
-import Intro from './card';
+///subcomponents
+import ListItem from 'Components/PostsListItem';
+import Intro from 'Components/PostsCard';
 
 class Posts extends Component{
     componentWillMount(){

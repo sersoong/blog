@@ -11,30 +11,7 @@
     text-align: left;
 }
 
-.card_title {
-    font-weight: bold
-}
-
-.card_description {
-    font-style: italic;
-    color: rgb(134, 134, 134)
-}
-
 .row {
     padding-top: 50px;
     padding-bottom: 25px;
-}
-
-.item {
-    padding-top: 50px;
-}
-
-.title {
-    color: aliceblue;
-    font-size: 20px;
-    text-shadow: 3px 3px 3px #000000
-}
-
-.image {
-    box-shadow: 3px 3px 3px #00000070;
 }
