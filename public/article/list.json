@@ -6,8 +6,8 @@
     "like": "39",
     "messages": "3",
     "tags":["foo","bar"],
-    "avatar": "/static/02.png",
-    "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+    "avatar": "",
+    "description": "",
     "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
 },
 {
@@ -18,7 +18,7 @@
     "like": "40",
     "messages": "3",
     "tags":["foo","bar"],
-    "avatar": "/static/02.png",
+    "avatar": "",
     "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
     "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
 },
@@ -30,7 +30,7 @@
     "like": "41",
     "messages": "3",
     "tags":["foo","bar"],
-    "avatar": "/static/02.png",
+    "avatar": "",
     "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
     "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
 },
@@ -42,7 +42,7 @@
     "like": "39",
     "messages": "3",
     "tags":["foo","bar"],
-    "avatar": "/static/02.png",
+    "avatar": "",
     "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
     "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
 },
@@ -54,7 +54,7 @@
     "like": "39",
     "messages": "3",
     "tags":["foo","bar"],
-    "avatar": "/static/02.png",
+    "avatar": "",
     "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
     "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
 },
@@ -66,7 +66,7 @@
     "like": "39",
     "messages": "3",
     "tags":["foo","bar"],
-    "avatar": "/static/02.png",
+    "avatar": "",
     "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
     "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
 },
@@ -78,7 +78,7 @@
     "like": "39",
     "messages": "3",
     "tags":["foo","bar"],
-    "avatar": "/static/02.png",
+    "avatar": "",
     "description": "Ant Design, a design language for background applications, is refined by Ant UED Team.",
     "content": "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently."
 }

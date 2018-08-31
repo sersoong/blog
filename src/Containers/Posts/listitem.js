@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tag, Row, Col,List, Icon, Button, Avatar } from "antd";
+import { Tag, List, Icon} from "antd";
 import "./style.css"
 
 export default class ListItem extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tag, Row, Col,List, Icon, Button, Avatar } from "antd";
+import { Row, Col,List} from "antd";
 import "./style.css"
 import ListItem from './listitem';
 

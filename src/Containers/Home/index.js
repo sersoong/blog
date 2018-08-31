@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Layout,Avatar, Row, Col, Button,Icon } from "antd";
 import "./style.css"
 
-const {Content} = Layout
-
 class Home extends Component{
     onEnter(){
         this.props.history.push("/posts")

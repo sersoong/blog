@@ -1,8 +1,17 @@
 import 'App.css';
-import Routes from 'routes';
-import {mapStateToProps,initsite,articleList} from 'store';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { Provider} from "react-redux";
+import Store,{ store } from 'store';
 
-const App = connect(mapStateToProps,{ initsite,articleList })(Routes)
+class App extends Component {
+    render(){
+        return(
+            <Provider store={store}>
+                <Store />
+            </Provider>
+        )
+    }
+    
+}
 
 export default App;

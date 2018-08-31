@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Row, Col,List, Icon, Button, Avatar } from "antd";
+import { Card, Avatar } from "antd";
 
 export default class Intro extends Component {
 
