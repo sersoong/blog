@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch ,Route } from "react-router-dom";
 import { Layout } from "antd";
-import BodyContent,{HeaderContent,FooterContent} from "Containers";
+///Content
+import BodyContent,{HeaderContent,FooterContent,Post} from "Containers";
+///style
 import "./App.css"
+
 const {Content} = Layout
 
 class Routes extends Component {
@@ -21,7 +24,7 @@ class Routes extends Component {
         return(
         <BrowserRouter>
             <Layout className="App">
-            <HeaderContent title={this.props.site_config.title} navs={this.props.navs}/>
+            <HeaderContent {...this.props}/>
                 <Layout>
                     <Content className="home_cover">
                             <Switch>
@@ -29,6 +32,7 @@ class Routes extends Component {
                                     return <Route exact key={i} path ={nav.url} render={(props)=>BodyContent(nav.title,{...props,...this.props})}/>
                                 }
                             )}
+                            <Route path="/post/:id" render={(props)=><Post {...props} {...this.props} />}/>
                             </Switch>
                     </Content>
                     <FooterContent title={this.props.site_config.title} creator={this.props.site_config.creator}/>

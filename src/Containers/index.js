@@ -2,6 +2,7 @@ import Home from './Home';
 import Posts from './Posts';
 import HeaderContent from './Header';
 import FooterContent from "./Footer";
+import Post from './Post';
 
 export default (subcomponent,props)=>{
     switch(subcomponent){
@@ -16,4 +17,4 @@ export default (subcomponent,props)=>{
     }
 }
 
-export { HeaderContent,FooterContent }
+export { HeaderContent,FooterContent,Post }

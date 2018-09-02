@@ -11,7 +11,6 @@ import reducer from "reducers";
 ///routes
 import Routes from 'routes';
 
-
 ///store
 export const store = createStore(reducer,applyMiddleware(thunk))
 

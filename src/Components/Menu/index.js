@@ -13,8 +13,9 @@ class HeaderMenu extends Component {
     }
 
     render(){
+        // console.log(this.props)
         var path = document.location.pathname
-        var num = '0'
+        var num = '-1'
         for(var i=0;i<this.props.navs.length;i++){
             if (this.props.navs[i].url === path){
                 num = i.toString()
@@ -30,8 +31,7 @@ class HeaderMenu extends Component {
             >
             {this.props.navs.map((nav,i)=>{
                 return(
-                    <Menu.Item key={i}>
-                        
+                    <Menu.Item key={i}>    
                         <NavLink to={nav.url}><Icon type={nav.icon}/>{nav.title}</NavLink> 
                     </Menu.Item>
                 )
