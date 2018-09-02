@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col,Card, Avatar, Tag, Icon,Button} from "antd";
 import marked from "marked";
-import { height } from 'window-size';
 ///style
 
 ///subcomponents
@@ -11,8 +10,12 @@ class Post extends Component{
     // componentWillMount(){
     //     this.props.articleList()
     // }
+    onBack(){
+        this.props.history.push("/posts")
+    }
 
     render(){
+        console.log(this.props)
         const content = {
             "title":"Test title",
             "date":"2018/09/02 08:37",
@@ -87,7 +90,7 @@ class Post extends Component{
         return(
             <div>
             
-                <Row type="flex" justify="center" align="middle" style={{lineHeight:"100px"}}><Col span="20" style={{textAlign:"left"}}><Button icon="left" size="large">Back</Button></Col></Row>
+                <Row type="flex" justify="center" align="middle" style={{lineHeight:"100px"}}><Col span="20" style={{textAlign:"left"}}><Button onClick={this.onBack.bind(this)} icon="left" size="large">Back</Button></Col></Row>
                 <Row  type="flex" justify="center" align="middle" >
                     <Col className="content" span="20">
                         <Card
@@ -98,11 +101,9 @@ class Post extends Component{
                         <Card.Meta 
                         avatar={<Avatar size={64} src={content.avatar}/>} 
                         title = {<h3>{content.author}</h3>}
-                        description = {<div>{content.date} <Icon type="form" /> {content.words} <Icon type="eye-o"/> {content.reads} <Icon type="message"/> {content.comments} <Icon type="like-o"/> {content.likes} <Icon type="tag"/> {content.tags.map((tag,i)=>{return <Tag key={i} color="#108ee9">{tag}</Tag>})}</div>}
+                        description = {<div>{content.date} <Icon type="eye-o"/> {content.reads} <Icon type="message"/> {content.comments} <Icon type="like-o"/> {content.likes} <Icon type="tag"/> {content.tags.map((tag,i)=>{return <Tag key={i} color="#108ee9">{tag}</Tag>})}</div>}
                         />
                         <div style={{paddingTop:"40px"}} dangerouslySetInnerHTML={{__html:marked(content.content)}}></div>
-
-
                         </Card>
                     </Col>
                 </Row>
