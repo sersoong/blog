@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col,List} from "antd";
+import { Row, Col,List,BackTop,Icon} from "antd";
 ///style
 import "./style.css"
 ///subcomponents
@@ -15,6 +15,9 @@ class Posts extends Component{
         // console.log(this.props)
         return(
             <div className="row">
+                <BackTop>
+                        <div className="ant-back-top-inner"><Icon type="arrow-up"/></div>
+                </BackTop>
                 <Row  type="flex" justify="center" align="middle" >
                     <Col className="content" span="20">
                         <List
