@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 ///actions
 import { Init_Site } from 'Containers/Home/action';
 import { Article_List } from "Containers/Posts/action";
+import { Article } from "Containers/Post/action";
 ///dispatch
-import { getSiteInfo,getArticleList } from "fetchdata";
+import { getSiteInfo,getArticleList,getArticle } from "fetchdata";
 ///reducer
 import reducer from "reducers";
 ///routes
@@ -18,7 +19,8 @@ function mapStateToProps(state){
   return{
       site_config:state.InitReducer.site_config,
       navs:state.InitReducer.navs,
-      article_list:state.getArticleListReducer.article_list
+      article_list:state.getArticleListReducer.article_list,
+      article:state.getArticleReducer.article
   }
 }
 
@@ -28,10 +30,16 @@ function initsite(){
   }
 }
 
-function articleList(){
+function get_ArticleList(){
   return(dispatch)=>{
     getArticleList(dispatch,Article_List)
   }
 }
 
-export default connect(mapStateToProps,{ initsite,articleList })(Routes)
+function get_Article(){
+  return(dispatch)=>{
+    getArticle(dispatch,Article)
+  }
+}
+
+export default connect(mapStateToProps,{ initsite,get_ArticleList,get_Article })(Routes)

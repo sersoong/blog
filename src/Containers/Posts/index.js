@@ -8,11 +8,11 @@ import Intro from 'Components/PostsCard';
 
 class Posts extends Component{
     componentWillMount(){
-        this.props.articleList()
+        this.props.get_ArticleList()
     }
 
     render(){
-        // console.log(this.props.article_list)
+        // console.log(this.props)
         return(
             <div className="row">
                 <Row  type="flex" justify="center" align="middle" >
@@ -31,7 +31,7 @@ class Posts extends Component{
                             dataSource={ this.props.article_list }
                             renderItem={item =>{
                                 return (
-                                    <ListItem item={item} />
+                                    <ListItem item={item} {...this.props} />
                                 )
                             } }
                         />

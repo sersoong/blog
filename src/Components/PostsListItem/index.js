@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Tag, List, Icon} from "antd";
 
 export default class ListItem extends Component {
+
     render(){
         // console.log(this.props)
         const IconText = ({ type, text }) => (

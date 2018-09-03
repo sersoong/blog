@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 class HeaderMenu extends Component {
     static propTypes = {
-        navs:PropTypes.array
+        navs:PropTypes.array.isRequired
     }
 
     static defaultProps = {
