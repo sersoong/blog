@@ -3,7 +3,8 @@ import { Tag, List, Icon} from "antd";
 
 export default class ListItem extends Component {
 
-    onGotoArticle(href){
+    onGotoArticle(id){
+        var href = "/post/"+id
         this.props.history.push(href)
     }
 
@@ -15,13 +16,12 @@ export default class ListItem extends Component {
               {text}
             </span>
           );
-        
         return(
             <List.Item 
             key={this.props.item.title}
             actions={[<IconText 
                 type="like-o" 
-                text={this.props.item.like} 
+                text={this.props.item.likes} 
                 />,
                 <IconText 
                 type="message" 
@@ -33,10 +33,10 @@ export default class ListItem extends Component {
                     {this.props.item.tags.map((tag,i)=>{return (<Tag key={i} color="#108ee9">{tag}</Tag>)})}
                 </div>
                 ]}
-            extra={<a onClick={this.onGotoArticle.bind(this,this.props.item.href)}><img width={150} alt="logo"  src={this.props.item.thumb}/></a>}
+            extra={<a onClick={this.onGotoArticle.bind(this,this.props.item.id)}><img width={150} alt="logo"  src={this.props.item.thumb}/></a>}
             >
                 <List.Item.Meta
-                    title={<a onClick={this.onGotoArticle.bind(this,this.props.item.href)}>{this.props.item.title}</a>}
+                    title={<a onClick={this.onGotoArticle.bind(this,this.props.item.id)}>{this.props.item.title}</a>}
                     description={this.props.item.description}/>
                 {this.props.item.content}
             </List.Item>

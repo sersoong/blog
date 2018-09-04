@@ -1,13 +1,12 @@
 {
-    "id":0,
-    "title":"Test title",
-    "date":"2018/09/02 08:37",
-    "tags":["test","foo","bar"],
-    "avatar":"/static/avatar.jpg",
-    "author":"sersoong",
-    "words":"1200",
-    "reads":"35",
-    "comments":"69",
-    "likes":"350",
-    "content_path":"/posts/0.md"
+    "0":{
+        "title":"Test title",
+        "date":"2018/09/02 08:37",
+        "tags":["test","foo","bar"],
+        "avatar":"/static/avatar.jpg",
+        "author":"sersoong",
+        "reads":"35",
+        "comments":"69",
+        "likes":"350"
+    }  
 }

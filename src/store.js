@@ -36,9 +36,9 @@ function get_ArticleList(){
   }
 }
 
-function get_Article(){
+function get_Article(id){
   return(dispatch)=>{
-    getArticle(dispatch,Article)
+    getArticle(dispatch,Article,id)
   }
 }
 

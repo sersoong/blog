@@ -25,33 +25,17 @@ marked.setOptions({
 })
 
 class Post extends Component{
-    
-    static defaultProps = {
-        article:{
-            title:"",
-            date:"",
-            tags:[],
-            avatar:"",
-            author:"",
-            words:"",
-            reads:"",
-            comments:"",
-            likes:"",
-            content:"",
-            id:-1
-        }
-    }
 
     onBack(){
         this.props.history.push("/posts")
     }
 
     componentWillMount(){
-        this.props.get_Article()
+        this.props.get_Article(this.props.match.params.id)
     }
 
     render(){
-        // console.log(this.props)
+        console.log(this.props.article)
         return(
                 <div className="markdown-body">
                     <BackTop style={{bottom:"90px"}} onClick={this.onBack.bind(this)}>
@@ -67,7 +51,7 @@ class Post extends Component{
                             title={<h1>{this.props.article.title}</h1>}
                             bordered
                             hoverable={true}
-                            actions={[<div ><Button size={"large"} className="actions_like" type="primary" icon="like"></Button><Button icon="left" className="actions_button">Prev</Button><Button icon="bars" className="actions_button">Back</Button><Button icon="right" className="actions_button">Next</Button></div>]}
+                            actions={[<div ><Button size={"large"} className="actions_like" type="primary" icon="like"></Button><Button icon="left" className="actions_button">Prev</Button><Button icon="bars" onClick={this.onBack.bind(this)} className="actions_button">Back</Button><Button icon="right" className="actions_button">Next</Button></div>]}
                             >
                             <Card.Meta 
                             avatar={<Avatar size={64} src={this.props.article.avatar}/>} 

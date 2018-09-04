@@ -16,19 +16,21 @@ export const getArticleList = (dispatch,action) => {
     )
 }
 
-export const getArticle = (dispatch,action) => {
+export const getArticle = (dispatch,action,id) => {
     Axios.get("/article/posts.json")
     .then(function(article_info){
         if(article_info.data.content_path!==""){
-            getArticleContent(dispatch,action,article_info.data)
+            var content_path = "/posts/"+id+".md"
+            getArticleContent(dispatch,action,content_path,article_info.data[id])
         }else{
-            dispatch(action(article_info))
+            dispatch(action(article_info.data[id]))
         }
     }
     )
 }
-export const getArticleContent = (dispatch,action,payload) => {
-    Axios.get("/posts/0.md")
+
+export const getArticleContent = (dispatch,action,url,payload) => {
+    Axios.get(url)
     .then(function(article){
         payload.content = article.data
         dispatch(action(payload))
