@@ -30,6 +30,14 @@ class Post extends Component{
         this.props.history.push("/posts")
     }
 
+    onGotoPostsTag(tag){
+        var path = {
+            pathname:"/posts",
+            query:{tag:tag}
+        }
+        this.props.history.push(path)
+    }
+
     componentWillMount(){
         this.props.get_Article(this.props.match.params.id)
     }
@@ -56,7 +64,7 @@ class Post extends Component{
                             <Card.Meta 
                             avatar={<Avatar size={64} src={this.props.article.avatar}/>} 
                             title = {<h3>{this.props.article.author}</h3>}
-                            description = {<div>{this.props.article.date} <Icon type="eye-o"/> {this.props.article.reads} <Icon type="message"/> {this.props.article.comments} <Icon type="like-o"/> {this.props.article.likes} <Icon type="tag"/> {this.props.article.tags.map((tag,i)=>{return <Tag key={i} color="#108ee9">{tag}</Tag>})}</div>}
+                            description = {<div>{this.props.article.date} <Icon type="eye-o"/> {this.props.article.reads} <Icon type="message"/> {this.props.article.comments} <Icon type="like-o"/> {this.props.article.likes} <Icon type="tag"/> {this.props.article.tags.map((tag,i)=>{return <Tag key={i} onClick={this.onGotoPostsTag.bind(this,tag)} color="#108ee9">{tag}</Tag>})}</div>}
                             />
                             
                             <div style={{paddingTop:"40px"}} dangerouslySetInnerHTML={{__html:marked(this.props.article.content)}}></div>
