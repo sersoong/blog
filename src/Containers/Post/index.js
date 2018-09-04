@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col,Card, Avatar, Tag, Icon,Button,Divider,BackTop} from "antd";
+import { Row, Col,Card, Avatar, Tag, Icon,Button,BackTop} from "antd";
 import marked from "marked";
 import "./style.css"
 ///style
@@ -37,7 +37,10 @@ class Post extends Component{
         // console.log(this.props)
         return(
                 <div className="markdown-body">
-                    <BackTop>
+                    <BackTop style={{bottom:"90px"}} onClick={this.onBack.bind(this)}>
+                        <div className="ant-back-top-inner-rect "><Icon type="left"/></div>
+                    </BackTop>
+                    <BackTop style={{bottom:"40px"}}>
                         <div className="ant-back-top-inner"><Icon type="arrow-up"/></div>
                     </BackTop>
                     <Row type="flex" justify="center" align="middle" style={{lineHeight:"100px"}}><Col span="20" style={{textAlign:"left"}}><Button onClick={this.onBack.bind(this)} icon="left" size="large">Back</Button></Col></Row>
@@ -47,6 +50,7 @@ class Post extends Component{
                             title={<h1>{this.props.article.title}</h1>}
                             bordered
                             hoverable={true}
+                            actions={[<Button size={"large"} type="primary" icon="like"></Button>]}
                             >
                             <Card.Meta 
                             avatar={<Avatar size={64} src={this.props.article.avatar}/>} 
@@ -54,11 +58,7 @@ class Post extends Component{
                             description = {<div>{this.props.article.date} <Icon type="eye-o"/> {this.props.article.reads} <Icon type="message"/> {this.props.article.comments} <Icon type="like-o"/> {this.props.article.likes} <Icon type="tag"/> {this.props.article.tags.map((tag,i)=>{return <Tag key={i} color="#108ee9">{tag}</Tag>})}</div>}
                             />
                             <div style={{paddingTop:"40px"}} dangerouslySetInnerHTML={{__html:marked(this.props.article.content)}}></div>
-                            <Card
-                            title={<h5>{this.props.article.title}</h5>}
-                            bordered
-                            hoverable={true}
-                            ></Card>
+                            
                             </Card>
                         </Col>
                     </Row>

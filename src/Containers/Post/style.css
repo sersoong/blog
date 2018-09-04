@@ -8,3 +8,14 @@
     text-align: center;
     font-size: 20px;
   }
+
+  .ant-back-top-inner-rect {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    background-color: #1088e9;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+  }
