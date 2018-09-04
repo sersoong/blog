@@ -9,7 +9,6 @@ import "./style.css"
 
 ///subcomponents
 
-
 highlight.configure({
     tabReplace:'  ',
     classPrefix:'hljs-',

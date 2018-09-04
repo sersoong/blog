@@ -1,11 +1,31 @@
 import React, { Component } from 'react';
 import { Row, Col,List,BackTop,Icon} from "antd";
-///style
-import "./style.css"
+
+
 ///subcomponents
 import ListItem from 'Components/PostsListItem';
 import Intro from 'Components/PostsCard';
 
+import marked from "marked";
+import highlight from "highlight.js";
+///style
+import "./style.css"
+import "Containers/Post/js-highlight.css"
+import "github-markdown-css"
+
+highlight.configure({
+    tabReplace:'  ',
+    classPrefix:'hljs-',
+    languages:['CSS', 'HTML, XML', 'JavaScript', 'PHP', 'Python', 'Stylus', 'TypeScript', 'Markdown']
+})
+
+marked.setOptions({
+    gfm:true,
+    breaks:true,
+    highlight(code){
+        return highlight.highlightAuto(code).value
+    }
+})
 class Posts extends Component{
 
     componentWillMount(){
@@ -46,7 +66,7 @@ class Posts extends Component{
                             dataSource={ temp_list }
                             renderItem={item =>{
                                 return (
-                                    <ListItem item={item} {...this.props} />
+                                    <ListItem item={item} marked={marked(item.content)} {...this.props} />
                                 )
                             } }
                         />
