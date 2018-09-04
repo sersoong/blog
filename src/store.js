@@ -31,9 +31,9 @@ function initsite(){
 }
 
 function get_ArticleList(){
-  return(dispatch)=>{
-    getArticleList(dispatch,Article_List)
-  }
+    return(dispatch)=>{
+      getArticleList(dispatch,Article_List)
+    }
 }
 
 function get_Article(id){

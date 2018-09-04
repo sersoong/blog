@@ -8,7 +8,7 @@ const getSiteConfig = ()=> {
     return Axios.get("/site_config.json")
 }
 
-export const getArticleList = (dispatch,action) => {
+export const getArticleList = (dispatch,action,) => {
     Axios.get("/article/list.json")
     .then(function(article_list){
         dispatch(action(article_list.data))

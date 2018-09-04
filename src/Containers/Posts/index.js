@@ -7,12 +7,24 @@ import ListItem from 'Components/PostsListItem';
 import Intro from 'Components/PostsCard';
 
 class Posts extends Component{
+
     componentWillMount(){
         this.props.get_ArticleList()
     }
 
     render(){
-        // console.log(this.props)
+        // console.log(this.props.location.query)
+        var temp_list = []
+        if(typeof this.props.location.query!=="undefined"){
+            this.props.article_list.map((item,i)=>{
+                if(item.tags.indexOf(this.props.location.query.tag)>-1){
+                    temp_list.push(item)
+                }
+            })
+        } else{
+            temp_list = this.props.article_list
+        }
+        
         return(
             <div className="row">
                 <BackTop>
@@ -31,7 +43,7 @@ class Posts extends Component{
                               }}
                             header={<Intro {...this.props}/>}
                             bordered
-                            dataSource={ this.props.article_list }
+                            dataSource={ temp_list }
                             renderItem={item =>{
                                 return (
                                     <ListItem item={item} {...this.props} />

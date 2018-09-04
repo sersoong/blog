@@ -8,8 +8,16 @@ export default class ListItem extends Component {
         this.props.history.push(href)
     }
 
+    onGotoPostsTag(tag){
+        var path = {
+            pathname:"/posts",
+            query:{tag:tag}
+        }
+        this.props.history.push(path)
+    }
+
     render(){
-        // console.log(this.props)
+        // console.log(this.props.location.query)
         const IconText = ({ type, text }) => (
             <span style={{ marginLeft:15 }}>
               <Icon type={type} style={{ marginRight: 8 }} />
@@ -30,7 +38,7 @@ export default class ListItem extends Component {
                     {this.props.item.date}
                 </div>,
                 <div>
-                    {this.props.item.tags.map((tag,i)=>{return (<Tag key={i} color="#108ee9">{tag}</Tag>)})}
+                    {this.props.item.tags.map((tag,i)=>{return (<Tag key={i} color="#108ee9" onClick={this.onGotoPostsTag.bind(this,tag)}>{tag}</Tag>)})}
                 </div>
                 ]}
             extra={<a onClick={this.onGotoArticle.bind(this,this.props.item.id)}><img width={150} alt="logo"  src={this.props.item.thumb}/></a>}
