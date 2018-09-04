@@ -3,6 +3,7 @@ import { Row, Col,Card, Avatar, Tag, Icon,Button,BackTop} from "antd";
 import marked from "marked";
 import highlight from "highlight.js";
 import "./js-highlight.css"
+import "github-markdown-css"
 import "./style.css"
 ///style
 
@@ -11,10 +12,13 @@ import "./style.css"
 
 highlight.configure({
     tabReplace:'  ',
+    classPrefix:'hljs-',
     languages:['CSS', 'HTML, XML', 'JavaScript', 'PHP', 'Python', 'Stylus', 'TypeScript', 'Markdown']
 })
 
 marked.setOptions({
+    gfm:true,
+    breaks:true,
     highlight(code){
         return highlight.highlightAuto(code).value
     }
@@ -63,7 +67,7 @@ class Post extends Component{
                             title={<h1>{this.props.article.title}</h1>}
                             bordered
                             hoverable={true}
-    actions={[<div ><Button size={"large"} className="actions_like" type="primary" icon="like"></Button><Button icon="left" className="actions_button">Prev</Button><Button icon="bars" className="actions_button">Back</Button><Button icon="right" className="actions_button">Next</Button></div>]}
+                            actions={[<div ><Button size={"large"} className="actions_like" type="primary" icon="like"></Button><Button icon="left" className="actions_button">Prev</Button><Button icon="bars" className="actions_button">Back</Button><Button icon="right" className="actions_button">Next</Button></div>]}
                             >
                             <Card.Meta 
                             avatar={<Avatar size={64} src={this.props.article.avatar}/>} 
