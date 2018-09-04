@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
 import { Row, Col,Card, Avatar, Tag, Icon,Button,BackTop} from "antd";
 import marked from "marked";
+import highlight from "highlight.js";
+import "./js-highlight.css"
 import "./style.css"
 ///style
 
 ///subcomponents
 
+
+highlight.configure({
+    tabReplace:'  ',
+    languages:['CSS', 'HTML, XML', 'JavaScript', 'PHP', 'Python', 'Stylus', 'TypeScript', 'Markdown']
+})
+
+marked.setOptions({
+    highlight(code){
+        return highlight.highlightAuto(code).value
+    }
+})
 
 class Post extends Component{
     
@@ -50,16 +63,17 @@ class Post extends Component{
                             title={<h1>{this.props.article.title}</h1>}
                             bordered
                             hoverable={true}
-                            actions={[<Button size={"large"} type="primary" icon="like"></Button>]}
+    actions={[<div ><Button size={"large"} className="actions_like" type="primary" icon="like"></Button><Button icon="left" className="actions_button">Prev</Button><Button icon="bars" className="actions_button">Back</Button><Button icon="right" className="actions_button">Next</Button></div>]}
                             >
                             <Card.Meta 
                             avatar={<Avatar size={64} src={this.props.article.avatar}/>} 
                             title = {<h3>{this.props.article.author}</h3>}
                             description = {<div>{this.props.article.date} <Icon type="eye-o"/> {this.props.article.reads} <Icon type="message"/> {this.props.article.comments} <Icon type="like-o"/> {this.props.article.likes} <Icon type="tag"/> {this.props.article.tags.map((tag,i)=>{return <Tag key={i} color="#108ee9">{tag}</Tag>})}</div>}
                             />
-                            <div style={{paddingTop:"40px"}} dangerouslySetInnerHTML={{__html:marked(this.props.article.content)}}></div>
                             
+                            <div style={{paddingTop:"40px"}} dangerouslySetInnerHTML={{__html:marked(this.props.article.content)}}></div>
                             </Card>
+                            
                         </Col>
                     </Row>
                 </div>
