@@ -1,5 +1,5 @@
 .home_cover {
-    background-image: url("/static/background.jpg");
+    background-image: url("/blog/static/background.jpg");
     background-size: cover;
     height: 100%;
     color: #000000;

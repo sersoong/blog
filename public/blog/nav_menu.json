@@ -1,0 +1,4 @@
+[
+    {"title":"Home","url":"/blog/","icon":"home"},
+    {"title":"Posts","url":"/blog/posts/","icon":"file-text"}
+]

@@ -9,7 +9,7 @@ class HeaderMenu extends Component {
     }
 
     static defaultProps = {
-        navs:[{title:'Home',url:'/'}]
+        navs:[{title:'Home',url:'/blog/'}]
     }
 
     render(){

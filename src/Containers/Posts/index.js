@@ -40,6 +40,7 @@ class Posts extends Component{
                 if(item.tags.indexOf(this.props.location.query.tag)>-1){
                     temp_list.push(item)
                 }
+                return[]
             })
         } else{
             temp_list = this.props.article_list

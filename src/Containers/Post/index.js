@@ -26,12 +26,12 @@ marked.setOptions({
 class Post extends Component{
 
     onBack(){
-        this.props.history.push("/posts")
+        this.props.history.push("/blog/posts/")
     }
 
     onGotoPostsTag(tag){
         var path = {
-            pathname:"/posts",
+            pathname:"/blog/posts/",
             query:{tag:tag}
         }
         this.props.history.push(path)
@@ -42,7 +42,7 @@ class Post extends Component{
     }
 
     render(){
-        console.log(this.props.article)
+        // console.log(this.props)
         return(
                 <div className="markdown-body">
                     <BackTop style={{bottom:"90px"}} onClick={this.onBack.bind(this)}>

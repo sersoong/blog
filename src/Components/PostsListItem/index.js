@@ -4,13 +4,13 @@ import { Tag, List, Icon} from "antd";
 export default class ListItem extends Component {
 
     onGotoArticle(id){
-        var href = "/post/"+id
+        var href = "/blog/post/"+id
         this.props.history.push(href)
     }
 
     onGotoPostsTag(tag){
         var path = {
-            pathname:"/posts",
+            pathname:"/blog/posts",
             query:{tag:tag}
         }
         this.props.history.push(path)

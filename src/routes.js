@@ -19,7 +19,7 @@ class Routes extends Component {
     }
 
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         this.setTitle(this.props.site_config.title)
         return(
         <BrowserRouter>
@@ -32,10 +32,10 @@ class Routes extends Component {
                                     return <Route exact key={i} path ={nav.url} render={(props)=>BodyContent(nav.title,{...props,...this.props})}/>
                                 }
                             )}
-                            <Route path="/post/:id" render={(props)=><Post {...props} {...this.props} />}/>
+                            <Route path="/blog/post/:id" render={(props)=><Post {...props} {...this.props} />}/>
                             </Switch>
                     </Content>
-                    <FooterContent title={this.props.site_config.title} creator={this.props.site_config.creator}/>
+                    <FooterContent title={this.props.site_config.title} creator={this.props.site_config.creator} navs={this.props.navs}/>
                 </Layout>
             </Layout>
         </BrowserRouter>

@@ -4,7 +4,7 @@ import "./style.css"
 
 class Home extends Component{
     onEnter(){
-        this.props.history.push("/posts")
+        this.props.history.push("/blog/posts/")
     }
 
     render(){
