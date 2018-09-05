@@ -3,7 +3,7 @@
         "title":"Test title",
         "date":"2018/09/02 08:37",
         "tags":["test","foo","bar"],
-        "avatar":"/static/avatar.jpg",
+        "avatar":"/blog/static/avatar.jpg",
         "author":"sersoong",
         "reads":"35",
         "comments":"69",

@@ -1,7 +1,7 @@
 [{
     "id":0,
     "title": "Test title",
-    "thumbnail": "/static/stellaris.jpg",
+    "thumbnail": "/blog/static/stellaris.jpg",
     "date": "2018/09/02 08:37",
     "likes": "350",
     "reads":"35",
